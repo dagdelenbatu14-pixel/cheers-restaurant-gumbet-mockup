@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Cheers Restaurant · Gümbet, Bodrum · Akşam Burada Başlar</title>
+<meta name="description" content="Gumbet'in kalbinde kokteyl, akşam yemeği ve DJ geceleri. Where Bodrum meets the world"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Cheers Restaurant",
+  "image": "https://cheers-bodrum.example/og.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Gumbet, Adnan Menderes Cd. No:31",
+    "addressLocality": "Bodrum",
+    "addressRegion": "Mugla",
+    "postalCode": "48400",
+    "addressCountry": "TR"
+  },
+  "servesCuisine": ["International", "Cocktails", "Mediterranean"],
+  "priceRange": "$$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "412"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "18:00",
+    "closes": "02:00"
+  }],
+  "url": "https://cheers-bodrum.example",
+  "telephone": "+905000000000"
+}
+</script>
+<style>
+:root {
+  --sunset: #e87a3f;
+  --gold: #d6a948;
+  --midnight: #1d2742;
+  --midnight-2: #131a30;
+  --ivory: #fbf6ec;
+  --paper: #fff9ee;
+  --ink: #1d2742;
+  --line: rgba(29,39,66,.14);
+  --pad: clamp(20px, 5vw, 64px);
+  --max: 1260px;
+  --f-display: "Cormorant Garamond", serif;
+  --f-body: "Inter", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--f-body); color: var(--ink); background: var(--paper); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+section { padding: clamp(80px, 14vw, 160px) 0; }
+
+.nav { position: sticky; top: 0; z-index: 30; background: rgba(255,249,238,.94); backdrop-filter: blur(12px); padding: 18px 0; border-bottom: 1px solid var(--line); }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: 1.5rem; color: var(--midnight); text-decoration: none; line-height: 1; }
+.brand small { display: block; font-family: var(--f-body); font-style: normal; font-size: .64rem; letter-spacing: .3em; text-transform: uppercase; opacity: .55; margin-top: 4px; }
+.lang { display: inline-flex; align-items: center; gap: 10px; }
+.lang button { font-size: .76rem; padding: 6px 12px; border: 1px solid var(--line); background: transparent; color: rgba(29,39,66,.55); border-radius: 999px; cursor: pointer; letter-spacing: .1em; text-transform: uppercase; }
+.lang button.is-active { background: var(--midnight); color: var(--ivory); border-color: var(--midnight); }
+.nav__cta { font-size: .8rem; padding: 11px 24px; background: var(--sunset); color: var(--ivory); text-decoration: none; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; border-radius: 999px; margin-left: 16px; }
+
+.hero { padding: clamp(80px, 14vw, 160px) 0; background: linear-gradient(160deg, var(--ivory) 0%, #f6e6c9 100%); position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; bottom: -160px; right: -120px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(232,122,63,.22), transparent 70%); pointer-events: none; }
+.hero::after { content: ''; position: absolute; top: -100px; left: -100px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(214,169,72,.2), transparent 70%); pointer-events: none; }
+.hero__eyebrow { font-size: .72rem; letter-spacing: .32em; text-transform: uppercase; color: var(--sunset); margin: 0 0 32px; position: relative; }
+.hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.6rem, 7vw, 5.4rem); line-height: 1.04; margin: 0 0 16px; max-width: 920px; letter-spacing: -0.005em; position: relative; }
+.hero h1 em { font-style: italic; color: var(--sunset); }
+.hero h1 .tr { display: block; font-size: 0.72em; color: rgba(29,39,66,.6); font-style: italic; font-weight: 400; margin-top: 12px; }
+.hero__sub { font-size: 1.1rem; max-width: 580px; color: rgba(29,39,66,.78); margin: 32px 0 44px; position: relative; }
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; position: relative; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; text-decoration: none; font-size: .85rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; transition: background .2s ease, color .2s ease; border-radius: 999px; }
+.btn-primary { background: var(--sunset); color: var(--ivory); }
+.btn-primary:hover { background: #d96a30; }
+.btn-ghost { color: var(--midnight); border: 1px solid var(--midnight); }
+.btn-ghost:hover { background: var(--midnight); color: var(--ivory); }
+
+.hero__divider { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
+.hero__divider div { display: flex; flex-direction: column; gap: 4px; }
+.hero__divider dt { font-size: .66rem; letter-spacing: .24em; text-transform: uppercase; color: rgba(29,39,66,.5); }
+.hero__divider dd { margin: 0; font-family: var(--f-display); font-style: italic; font-size: 1.45rem; color: var(--sunset); }
+
+.section-head { max-width: 720px; margin: 0 auto 80px; text-align: center; }
+.section-head .eyebrow { font-size: .72rem; letter-spacing: .32em; text-transform: uppercase; color: var(--sunset); margin: 0 0 18px; }
+.section-head h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.08; margin: 0 0 18px; }
+.section-head h2 em { font-style: italic; color: var(--sunset); }
+.section-head p { color: rgba(29,39,66,.7); max-width: 480px; margin: 0 auto; font-size: 1.05rem; }
+.section-head p em { font-style: italic; color: var(--gold); }
+
+.services { background: var(--paper); }
+.services__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.service { padding: 40px 32px; background: var(--ivory); border: 1px solid var(--line); position: relative; border-radius: 4px; }
+.service__num { font-family: var(--f-display); font-style: italic; font-size: 1.2rem; color: var(--sunset); margin-bottom: 20px; letter-spacing: .08em; }
+.service h3 { font-family: var(--f-display); font-weight: 500; font-size: 1.65rem; margin: 0 0 12px; }
+.service p { color: rgba(29,39,66,.74); font-size: .96rem; margin: 0 0 24px; }
+.service ul { list-style: none; padding: 0; margin: 0; }
+.service li { padding: 8px 0; border-top: 1px solid rgba(29,39,66,.1); font-size: .88rem; color: rgba(29,39,66,.78); }
+.service li:first-child { border-top: 0; padding-top: 0; }
+
+.timeline { background: var(--midnight); color: var(--ivory); }
+.timeline .section-head h2, .timeline .section-head .eyebrow, .timeline .section-head p { color: var(--ivory); }
+.timeline .section-head h2 em { color: var(--gold); }
+.timeline .section-head .eyebrow { color: var(--gold); opacity: .85; }
+.timeline__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+.tl { padding-top: 24px; border-top: 1px solid rgba(251,246,236,.22); }
+.tl__time { font-family: var(--f-display); font-style: italic; font-size: 1.5rem; color: var(--gold); margin-bottom: 8px; }
+.tl__title { font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(251,246,236,.85); margin-bottom: 14px; }
+.tl__desc { font-size: .88rem; color: rgba(251,246,236,.7); }
+
+.about { background: var(--ivory); }
+.about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 8vw, 120px); align-items: center; }
+.about__text .eyebrow { font-size: .72rem; letter-spacing: .32em; text-transform: uppercase; color: var(--sunset); margin: 0 0 18px; }
+.about__text h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height: 1.1; margin: 0 0 22px; }
+.about__text h2 em { font-style: italic; color: var(--sunset); }
+.about__text p { color: rgba(29,39,66,.82); font-size: 1.08rem; margin: 1em 0; max-width: 480px; }
+.about__panel { background: var(--paper); border: 1px solid var(--line); padding: 40px; border-radius: 4px; }
+.about__panel h4 { font-family: var(--f-display); font-style: italic; font-size: 1.4rem; margin: 0 0 6px; color: var(--midnight); }
+.about__panel small { font-size: .76rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(29,39,66,.55); display: block; margin-bottom: 24px; }
+.about__panel dl { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 0; }
+.about__panel dl > div { display: flex; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.about__panel dl > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.about__panel dt { font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(29,39,66,.55); }
+.about__panel dd { margin: 0; font-family: var(--f-display); font-style: italic; font-size: 1.18rem; color: var(--sunset); }
+
+.proof { background: var(--paper); }
+.proof__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 8px; }
+.quote { padding: 32px; background: var(--ivory); border-top: 3px solid var(--sunset); border-radius: 4px; }
+.quote p { font-family: var(--f-display); font-style: italic; font-size: 1.18rem; line-height: 1.5; margin: 0 0 22px; }
+.quote footer { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(29,39,66,.55); }
+
+.final { background: linear-gradient(135deg, var(--midnight) 0%, var(--midnight-2) 100%); color: var(--ivory); text-align: center; position: relative; overflow: hidden; }
+.final::before { content: ''; position: absolute; top: 50%; left: 50%; width: 600px; height: 600px; transform: translate(-50%,-50%); border-radius: 50%; background: radial-gradient(circle, rgba(232,122,63,.18), transparent 70%); pointer-events: none; }
+.final .wrap { position: relative; }
+.final h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.4rem, 5.5vw, 4rem); line-height: 1.05; margin: 0 auto 22px; max-width: 800px; color: var(--ivory); }
+.final h2 em { font-style: italic; color: var(--gold); }
+.final p { color: rgba(251,246,236,.82); font-size: 1.08rem; margin: 0 auto 40px; max-width: 500px; }
+.final .btn-primary { background: var(--sunset); color: var(--ivory); }
+.final .btn-primary:hover { background: #d96a30; }
+.final .btn-ghost { color: var(--ivory); border-color: var(--ivory); }
+.final .btn-ghost:hover { background: var(--ivory); color: var(--midnight); }
+
+.foot { background: var(--midnight-2); color: rgba(251,246,236,.55); padding: 32px 0; font-size: .82rem; }
+.foot__inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .9s ease, transform .9s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  .services__grid, .proof__grid { grid-template-columns: 1fr; }
+  .timeline__grid { grid-template-columns: 1fr 1fr; }
+  .about__grid { grid-template-columns: 1fr; }
+  .hero__divider { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { *, ::before, ::after { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top">Cheers<small>Gumbet · Bodrum</small></a>
+    <div style="display:flex; align-items:center;">
+      
+      <a class="nav__cta" href="https://wa.me/905000000000" target="_blank" rel="noopener">Mesaj Atın</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="hero__eyebrow">Gümbet · Bodrum · Kokteyl ve Geç Saatler</p>
+    <h1>Akşam <em>burada</em> başlar.
+    </h1>
+    <p class="hero__sub">Gumbet'in tam ortasında, gün batımıyla açılan ve gece yarısını geçen bir bar-restoran. Akşam yemeği, imza kokteyller ve hafta sonu DJ setleri.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://wa.me/905000000000" target="_blank" rel="noopener">Mesajla İletişim</a>
+      <a class="btn btn-ghost" href="#menu">Menüyü Gör</a>
+    </div>
+    <dl class="hero__divider">
+      <div><dt>Açılış</dt><dd>18:00</dd></div>
+      <div><dt>Son Servis</dt><dd>02:00</dd></div>
+      <div><dt>Puan</dt><dd>4.8 / 5</dd></div>
+      <div><dt>Dil</dt><dd>TR · EN</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="services" id="menu">
+  <div class="wrap">
+    <header class="section-head">
+      <span class="eyebrow">Akşamın Üç Hali</span>
+      <h2>Üç farklı <em>ritim,</em> tek bir bar.</h2>
+      <p>Erken akşamdan gece yarısına — masa, bar ve dans alanı sırayla devreye giriyor.</p>
+    </header>
+    <div class="services__grid">
+      <article class="service reveal">
+        <div class="service__num">— I.</div>
+        <h3>Akşam Yemeği</h3>
+        <p>Şefin akdeniz mutfağı; ızgara ahtapot, levrek carpaccio ve mevsim sebzeleri ile.</p>
+        <ul>
+          <li>Ahtapot ızgara, kişniş yağı</li>
+          <li>Levrek carpaccio, pembe biber</li>
+          <li>Akdeniz mezeleri tabağı</li>
+          <li>Şefin günlük menüsü</li>
+        </ul>
+      </article>
+      <article class="service reveal">
+        <div class="service__num">— II.</div>
+        <h3>Kokteyl Saati</h3>
+        <p>Bodrum'un en uzun bar kartlarından biri — imza kokteyller, klasikler, mocktail seçenekleri.</p>
+        <ul>
+          <li>Imza: Gumbet Sunset</li>
+          <li>Bodrum Negroni, mastik likörü</li>
+          <li>Premium ispirto seçkisi</li>
+          <li>Alkolsüz kokteyl bar</li>
+        </ul>
+      </article>
+      <article class="service reveal">
+        <div class="service__num">— III.</div>
+        <h3>DJ Geceleri</h3>
+        <p>Perşembe'den Pazar'a, gece 23:00 sonrası rezident ve davetli DJ setleri. Dans alanı açılır.</p>
+        <ul>
+          <li>Per — Paz · 23:00 sonrası</li>
+          <li>Deep house · Mediterranean</li>
+          <li>Davetli DJ akşamları</li>
+          <li>Masa rezervasyonu önerilir</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="wrap">
+    <header class="section-head">
+      <span class="eyebrow">Gecenin Akışı</span>
+      <h2>Gün batımından <em>son şarkıya.</em></h2>
+      <p>Her akşam kabaca bu ritmi izler — masanız hangi saate denk gelirse o pencerenin tadını çıkarın.</p>
+    </header>
+    <div class="timeline__grid">
+      <div class="tl reveal">
+        <div class="tl__time">18:00</div>
+        <div class="tl__title">Açılış</div>
+        <p class="tl__desc">Kapılar açılır, bar hazır. Aperitif saatleri.</p>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">20:00</div>
+        <div class="tl__title">Akşam Yemeği</div>
+        <p class="tl__desc">Şefin menüsü, uzun masalar dolmaya başlar.</p>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">22:30</div>
+        <div class="tl__title">Kokteyl Saati</div>
+        <p class="tl__desc">Yemek biter, bar dolar. Imza kokteyller akar.</p>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">23:30</div>
+        <div class="tl__title">DJ Seti</div>
+        <p class="tl__desc">Dans alanı açılır, müzik yükselir.</p>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">02:00</div>
+        <div class="tl__title">Son Servis</div>
+        <p class="tl__desc">Son kadehler, son şarkılar. Kapanış.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap about__grid">
+    <div class="about__text reveal">
+      <span class="eyebrow">Hikayemiz</span>
+      <h2>Gumbet'te <em>dünyayla buluşan</em> bir akşam.</h2>
+      <p>Cheers, 2018'de Adnan Menderes Caddesi'nin tam ortasında, eski bir taş binanın yenilenmesiyle açıldı. Şef Cem Aksoy'un akdeniz mutfağı ile barmen Deniz Yıldız'ın imza kokteylleri burada buluşuyor.</p>
+      <p>Yazlık Bodrum'a gelen yabancı misafirler ve Türk hafta sonu kaçamakçıları, aynı bardan içiyor. Servis ekibimiz Türkçe ve İngilizce; menü iki dilli.</p>
+    </div>
+    <aside class="about__panel reveal">
+      <h4>Bu Sezon · Yaz 2026</h4>
+      <small>Gumbet · Adnan Menderes Cd. No:31</small>
+      <dl>
+        <div><dt>Kuruluş</dt><dd>2018</dd></div>
+        <div><dt>Kapasite</dt><dd>120 kişi</dd></div>
+        <div><dt>Şef</dt><dd>Cem Aksoy</dd></div>
+        <div><dt>Bar</dt><dd>Deniz Yıldız</dd></div>
+        <div><dt>Misafir profili</dt><dd>TR + International</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <header class="section-head">
+      <span class="eyebrow">Misafirlerimiz</span>
+      <h2>Söyledikleri <em>birkaç söz.</em></h2>
+    </header>
+    <div class="proof__grid">
+      <blockquote class="quote reveal">
+        <p>"Gumbet'te akşam yemeği yiyip bara kadar kalabileceğin nadir mekanlardan. Servis ekibinin İngilizce'si harika."</p>
+        <footer>— Sarah J. · Temmuz 2025</footer>
+      </blockquote>
+      <blockquote class="quote reveal">
+        <p>"Gumbet Sunset kokteyli efsane. Cuma akşamı DJ seti için tekrar geleceğiz, masa ayırtmayı unutmayın."</p>
+        <footer>— Ece &amp; Murat · Ağustos 2025</footer>
+      </blockquote>
+      <blockquote class="quote reveal">
+        <p>"From the food to the music — a real Mediterranean evening. Felt like Mykonos but with better service."</p>
+        <footer>— James &amp; Olivia · Eylül 2025</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="iletisim">
+  <div class="wrap">
+    <h2>Bu akşam <em>masanızı</em> ayırtın.</h2>
+    <p>Hafta sonları erken doluyoruz. WhatsApp üzerinden mesaj atın, masa türü ve saat birlikte bakalım.</p>
+    <div class="cta-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="https://wa.me/905000000000" target="_blank" rel="noopener">Mesajla Rezervasyon</a>
+      <a class="btn btn-ghost" href="https://maps.google.com/?q=Cheers+Restaurant+Gumbet+Bodrum" target="_blank" rel="noopener">Yol Tarifi</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <span>© 2026 Cheers Restaurant · Gumbet, Bodrum</span>
+    <span>@cheersbodrum</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
