@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <title>Cheers Restaurant · Gümbet, Bodrum · Akşam Burada Başlar</title>
-<meta name="description" content="Gumbet'in kalbinde kokteyl, akşam yemeği ve DJ geceleri. Where Bodrum meets the world"/>
+<meta name="description" content="Gumbet'in kalbinde kokteyl, akşam yemeği ve karaoke geceleri. Where Bodrum meets the world"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -167,6 +167,24 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
 .gallery__item.big { grid-column: span 2; grid-row: span 2; }
 .gallery__item.sq { grid-column: span 1; grid-row: span 1; }
 
+.full-menu { background: var(--paper); padding-top: clamp(80px, 14vw, 160px); padding-bottom: clamp(80px, 14vw, 160px); }
+.menu-block + .menu-block { margin-top: clamp(56px, 8vw, 96px); }
+.menu-block__head { text-align: center; margin-bottom: 12px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.menu-block__head h3 { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--midnight); margin: 0; }
+.menu-block__head span { font-size: .72rem; letter-spacing: .3em; text-transform: uppercase; color: var(--sunset); display: block; margin-top: 8px; }
+.menu-block__note { text-align: center; font-size: .86rem; color: rgba(29,39,66,.62); margin: 8px 0 32px; font-style: italic; }
+.menu-block__note em { font-style: normal; color: rgba(29,39,66,.45); }
+.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 56px; margin-top: 32px; }
+.menu-grid--three { grid-template-columns: repeat(3, 1fr); gap: 28px 40px; }
+.m-item h4 { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: 1.32rem; margin: 0 0 4px; color: var(--midnight); line-height: 1.25; }
+.m-item h4 small { font-size: .78em; font-style: normal; color: rgba(29,39,66,.55); font-family: var(--f-body); letter-spacing: .02em; }
+.m-item h4 .star { color: var(--gold); font-size: .8em; margin-left: 4px; }
+.m-en { font-size: .74rem; letter-spacing: .22em; text-transform: uppercase; color: var(--sunset); margin: 0 0 10px; font-weight: 500; }
+.m-desc { font-size: .94rem; color: rgba(29,39,66,.8); margin: 0; line-height: 1.55; }
+.m-desc-en { font-size: .84rem; color: rgba(29,39,66,.52); margin: 4px 0 0; font-style: italic; line-height: 1.5; }
+.menu-cat-eyebrow { text-align: center; margin-top: 24px; }
+.menu-cat-eyebrow:first-child { margin-top: 0; }
+
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .9s ease, transform .9s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
@@ -178,6 +196,7 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
   .gallery__grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
   .gallery__item, .gallery__item.big, .gallery__item.sq { grid-column: span 1; grid-row: span 1; height: 220px; }
   .gallery__item.big { grid-column: span 2; height: 280px; }
+  .menu-grid, .menu-grid--three { grid-template-columns: 1fr; gap: 28px; }
 }
 @media (prefers-reduced-motion: reduce) { *, ::before, ::after { transition: none !important; } }
 </style>
@@ -199,7 +218,7 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
     <p class="hero__eyebrow">Gümbet · Bodrum · Kokteyl ve Geç Saatler</p>
     <h1>Akşam <em>burada</em> başlar.
     </h1>
-    <p class="hero__sub">Gumbet'in tam ortasında, gün batımıyla açılan ve gece yarısını geçen bir bar-restoran. Akşam yemeği, imza kokteyller ve hafta sonu DJ setleri.</p>
+    <p class="hero__sub">Gumbet'in tam ortasında, gün batımıyla açılan ve gece yarısını geçen bir bar-restoran. Akşam yemeği, imza kokteyller ve hafta sonu karaoke geceleri.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://wa.me/905533052053" target="_blank" rel="noopener">Mesajla İletişim</a>
       <a class="btn btn-ghost" href="#menu">Menüyü Gör</a>
@@ -221,12 +240,12 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
   </div>
 </section>
 
-<section class="services" id="menu">
+<section class="services" id="konsept">
   <div class="wrap">
     <header class="section-head">
       <span class="eyebrow">Akşamın Üç Hali</span>
       <h2>Üç farklı <em>ritim,</em> tek bir bar.</h2>
-      <p>Erken akşamdan gece yarısına — masa, bar ve dans alanı sırayla devreye giriyor.</p>
+      <p>Erken akşamdan gece yarısına — masa, bar ve karaoke sahnesi sırayla devreye giriyor.</p>
     </header>
     <div class="services__grid">
       <article class="service reveal">
@@ -253,16 +272,765 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
       </article>
       <article class="service reveal">
         <div class="service__num">— III.</div>
-        <h3>DJ Geceleri</h3>
-        <p>Perşembe'den Pazar'a, gece 23:00 sonrası rezident ve davetli DJ setleri. Dans alanı açılır.</p>
+        <h3>Karaoke Geceleri</h3>
+        <p>Perşembe'den Pazar'a, gece 23:00 sonrası canlı karaoke. Mikrofon sizde — sahne hazır.</p>
         <ul>
           <li>Per — Paz · 23:00 sonrası</li>
-          <li>Deep house · Mediterranean</li>
-          <li>Davetli DJ akşamları</li>
+          <li>TR · EN · geniş şarkı listesi</li>
+          <li>Sahne ışıkları ve profesyonel ses</li>
           <li>Masa rezervasyonu önerilir</li>
         </ul>
       </article>
     </div>
+  </div>
+</section>
+
+<section class="full-menu" id="menu">
+  <div class="wrap">
+    <header class="section-head">
+      <span class="eyebrow">Menü · Food Menu</span>
+      <h2>Şefin <em>menüsü.</em></h2>
+      <p>Kahvaltıdan steakhouse'a, mezeden tatlıya — tüm seçkimiz <em>iki dilli</em> aşağıda.</p>
+    </header>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>İmza Kahvaltılar</h3>
+        <span>Signature Breakfasts</span>
+      </div>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Türk Kahvaltı Tabağı <small>(1 kişilik)</small></h4>
+          <p class="m-en">Turkish Breakfast Plate (for 1)</p>
+          <p class="m-desc">Domates, salatalık, zeytin, beyaz peynir, bal, tereyağı, reçel, yumurta, ekmek</p>
+          <p class="m-desc-en">Fresh tomatoes, cucumbers, olives, white cheese, honey, butter, jam, eggs, bread</p>
+        </div>
+        <div class="m-item">
+          <h4>İngiliz Kahvaltısı</h4>
+          <p class="m-en">Full English Breakfast</p>
+          <p class="m-desc">2 yumurta, sosis, bacon, fasulye, ızgara domates, mantar, 2 tost ekmeği</p>
+          <p class="m-desc-en">2 eggs, sausage, bacon, beans, grilled tomato, mushrooms, 2 toasted bread</p>
+        </div>
+        <div class="m-item">
+          <h4>Fasulye Tost Üzerinde</h4>
+          <p class="m-en">Beans on Toast</p>
+          <p class="m-desc">Fırınlanmış fasulye tost ekmeği üzerinde servis edilir</p>
+          <p class="m-desc-en">Baked beans served on toasted bread</p>
+        </div>
+        <div class="m-item">
+          <h4>Yumurta Tost Üzerinde</h4>
+          <p class="m-en">Egg on Toast</p>
+          <p class="m-desc">Kızarmış veya poşe yumurta tost ekmeği üzerinde servis edilir</p>
+          <p class="m-desc-en">Fried or poached egg served on toasted bread</p>
+        </div>
+        <div class="m-item">
+          <h4>Menemen</h4>
+          <p class="m-en">Menemen</p>
+          <p class="m-desc">Domates, biber ve baharatlarla pişirilmiş geleneksel yumurta</p>
+          <p class="m-desc-en">Traditional Turkish scrambled eggs with tomatoes, peppers and spices</p>
+        </div>
+        <div class="m-item">
+          <h4>İsteğe Göre Yumurta</h4>
+          <p class="m-en">Eggs Your Way</p>
+          <p class="m-desc">Sahanda / çırpılmış / poşe — ekmek ve tereyağı ile</p>
+          <p class="m-desc-en">Fried / scrambled / poached — served with bread and butter</p>
+        </div>
+        <div class="m-item">
+          <h4>Serpme Kahvaltı <small>(2 kişilik)</small></h4>
+          <p class="m-en">Serpme Kahvaltı (for 2)</p>
+          <p class="m-desc">Paylaşımlık zengin kahvaltı: çeşitli peynirler, zeytin, domates, salatalık, bal & kaymak, reçeller, tereyağı, yumurta, ekmek ve çay</p>
+          <p class="m-desc-en">A rich traditional Turkish breakfast selection: cheeses, olives, tomatoes, cucumbers, honey & clotted cream, jams, butter, eggs, bread and tea</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Omletler</h3>
+        <span>Omelettes</span>
+      </div>
+      <p class="menu-block__note">Tüm omletler ekmek ve salata ile servis edilir · <em>All omelettes served with bread and salad</em></p>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Sade Omlet</h4>
+          <p class="m-en">Plain Omlette</p>
+          <p class="m-desc">Sade klasik omlet</p>
+          <p class="m-desc-en">Simple classic omlette</p>
+        </div>
+        <div class="m-item">
+          <h4>Peynirli Omlet</h4>
+          <p class="m-en">Cheese Omlette</p>
+          <p class="m-desc">Eriyen peynir ile hazırlanmış omlet</p>
+          <p class="m-desc-en">Classic omlette with melted cheese</p>
+        </div>
+        <div class="m-item">
+          <h4>Mantarlı Omlet</h4>
+          <p class="m-en">Mushroom Omlette</p>
+          <p class="m-desc">Sote mantar ile hazırlanmış omlet</p>
+          <p class="m-desc-en">Omlette with sautéed mushrooms</p>
+        </div>
+        <div class="m-item">
+          <h4>Jambonlu ve Peynirli Omlet</h4>
+          <p class="m-en">Ham & Cheese Omlette</p>
+          <p class="m-desc">Jambon ve eritilmiş peynir ile hazırlanmış omlet</p>
+          <p class="m-desc-en">Omlette with ham and melted cheese</p>
+        </div>
+        <div class="m-item">
+          <h4>Karışık Omlet</h4>
+          <p class="m-en">Mixed Omlette</p>
+          <p class="m-desc">Peynir, sebzeler ve jambon ile hazırlanmış omlet</p>
+          <p class="m-desc-en">Omlette with cheese, vegetables and ham</p>
+        </div>
+        <div class="m-item">
+          <h4>Krepler</h4>
+          <p class="m-en">Crepes · Sweet Breakfast</p>
+          <p class="m-desc">Bal veya çikolata sosu ile servis edilir</p>
+          <p class="m-desc-en">Served with honey or chocolate sauce</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Başlangıçlar</h3>
+        <span>Starters</span>
+      </div>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Günün Çorbası</h4>
+          <p class="m-en">Soup of the Day</p>
+          <p class="m-desc">Lütfen servis personeline sorunuz</p>
+          <p class="m-desc-en">Please ask your server</p>
+        </div>
+        <div class="m-item">
+          <h4>Sarımsaklı Ekmek <small>(peynirli)</small></h4>
+          <p class="m-en">Garlic Bread (with cheese)</p>
+          <p class="m-desc">Fırınlanmış ekmek, sarımsaklı tereyağı ve eritilmiş peynir ile</p>
+          <p class="m-desc-en">Oven-baked bread with garlic butter and melted cheese</p>
+        </div>
+        <div class="m-item">
+          <h4>Sarımsaklı Mantar <small>(peynirli)</small></h4>
+          <p class="m-en">Garlic Mushrooms (with cheese)</p>
+          <p class="m-desc">Sarımsaklı tereyağında sotelenmiş mantar, eritilmiş peynir ile</p>
+          <p class="m-desc-en">Mushrooms sautéed in garlic butter with melted cheese</p>
+        </div>
+        <div class="m-item">
+          <h4>Sarımsaklı Karides</h4>
+          <p class="m-en">Garlic Shrimp</p>
+          <p class="m-desc">Sarımsaklı tereyağında sotelenmiş karides</p>
+          <p class="m-desc-en">Sautéed shrimp in garlic butter</p>
+        </div>
+        <div class="m-item">
+          <h4>Kızarmış Kalamar</h4>
+          <p class="m-en">Fried Calamari</p>
+          <p class="m-desc">Sarımsaklı mayonez ile servis edilir</p>
+          <p class="m-desc-en">Crispy fried calamari served with garlic mayonnaise</p>
+        </div>
+        <div class="m-item">
+          <h4>Tavuk Kanat</h4>
+          <p class="m-en">Chicken Wings</p>
+          <p class="m-desc">Sarımsaklı acı sos ile servis edilir</p>
+          <p class="m-desc-en">Crispy fried chicken wings with garlic chilli sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Soğan Halkası</h4>
+          <p class="m-en">Onion Rings</p>
+          <p class="m-desc">Sarımsaklı mayonez ile servis edilir</p>
+          <p class="m-desc-en">Crispy onion rings with garlic mayonnaise</p>
+        </div>
+        <div class="m-item">
+          <h4>Peynirli Börek</h4>
+          <p class="m-en">Cheese Rolls</p>
+          <p class="m-desc">İçinde peynir ve maydanoz bulunan kızarmış börek</p>
+          <p class="m-desc-en">Fried rolls filled with Turkish cheese and parsley</p>
+        </div>
+        <div class="m-item">
+          <h4>Nachos</h4>
+          <p class="m-en">Nachos</p>
+          <p class="m-desc">Tortilla cipsleri, sarımsaklı mayonez ve tatlı acı sos ile</p>
+          <p class="m-desc-en">Tortilla chips with garlic mayonnaise and sweet chilli sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Türk Mezze Tabağı</h4>
+          <p class="m-en">Turkish Mezze Plate</p>
+          <p class="m-desc">Geleneksel Türk mezeleri: acılı ezme ve haydari</p>
+          <p class="m-desc-en">A selection of traditional Turkish dips: acılı ezme and haydari</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Salatalar</h3>
+        <span>Salads</span>
+      </div>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Yeşil Salata</h4>
+          <p class="m-en">Green Salad</p>
+          <p class="m-desc">Marul, roka, salatalık, zeytinyağı, limon</p>
+          <p class="m-desc-en">Lettuce, rucola, cucumber, olive oil, lemon</p>
+        </div>
+        <div class="m-item">
+          <h4>Yunan Salatası</h4>
+          <p class="m-en">Greek Salad</p>
+          <p class="m-desc">Domates, salatalık, beyaz peynir, zeytin, kırmızı soğan, zeytinyağı, kekik</p>
+          <p class="m-desc-en">Tomato, cucumber, feta cheese, olives, red onion, olive oil, oregano</p>
+        </div>
+        <div class="m-item">
+          <h4>Ton Balıklı Salata</h4>
+          <p class="m-en">Tuna Salad</p>
+          <p class="m-desc">Ton balığı, marul, domates, salatalık, kırmızı soğan, zeytinyağı, limon</p>
+          <p class="m-desc-en">Tuna, lettuce, tomato, cucumber, red onion, olive oil, lemon</p>
+        </div>
+        <div class="m-item">
+          <h4>Tavuklu Sezar Salata</h4>
+          <p class="m-en">Chicken Caesar Salad</p>
+          <p class="m-desc">Izgara tavuk, marul, kruton, Sezar sos (yoğurt, hardal, mayonez, limon, zeytinyağı)</p>
+          <p class="m-desc-en">Grilled chicken, lettuce, croutons, Caesar dressing (yogurt, mustard, mayonnaise, lemon, olive oil)</p>
+        </div>
+        <div class="m-item">
+          <h4>Çoban Salatası</h4>
+          <p class="m-en">Turkish Shepherd Salad</p>
+          <p class="m-desc">Domates, salatalık, soğan, maydanoz, zeytinyağı, limon</p>
+          <p class="m-desc-en">Tomato, cucumber, onion, parsley, olive oil, lemon</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Makarnalar</h3>
+        <span>Pasta</span>
+      </div>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Domates Sosunda Kıymalı Spagetti</h4>
+          <p class="m-en">Spaghetti Bolognese</p>
+          <p class="m-desc">Domates sosunda kıymalı spagetti</p>
+          <p class="m-desc-en">Spaghetti with minced beef in tomato sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Domates Soslu Spagetti</h4>
+          <p class="m-en">Spaghetti Napolitan</p>
+          <p class="m-desc">Domates soslu spagetti</p>
+          <p class="m-desc-en">Spaghetti in tomato sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Spagetti Carbonara</h4>
+          <p class="m-en">Spaghetti Carbonara</p>
+          <p class="m-desc">Krema, peynir ve bacon ile spagetti</p>
+          <p class="m-desc-en">Spaghetti with cream, cheese and bacon</p>
+        </div>
+        <div class="m-item">
+          <h4>Karidesli Spagetti</h4>
+          <p class="m-en">Spaghetti with Garlic Prawns</p>
+          <p class="m-desc">Kremalı veya domates soslu karidesli spagetti</p>
+          <p class="m-desc-en">Spaghetti with prawns in creamy or tomato sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Sebzeli Spagetti</h4>
+          <p class="m-en">Spaghetti with Vegetables</p>
+          <p class="m-desc">Karışık sebzeli spagetti</p>
+          <p class="m-desc-en">Spaghetti with mixed vegetables</p>
+        </div>
+        <div class="m-item">
+          <h4>Penne al Crema <span class="star">★</span></h4>
+          <p class="m-en">Penne al Crema</p>
+          <p class="m-desc">Tavuk, mantar ve krema soslu penne</p>
+          <p class="m-desc-en">Chicken, mushrooms and cream sauce</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Dürüm, Sandviç &amp; Tost</h3>
+        <span>Wraps, Sandwiches &amp; Toasts</span>
+      </div>
+      <p class="menu-block__note">Tümü patates kızartması, ketçap ve mayonez ile servis edilir · <em>All served with French fries, ketchup and mayonnaise</em></p>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Tavuk Döner Dürüm</h4>
+          <p class="m-en">Chicken Wrap</p>
+          <p class="m-desc">Tavuk döner, karışık biber ve soğan ile dürüm</p>
+          <p class="m-desc-en">Chicken döner, mixed peppers and onion</p>
+        </div>
+        <div class="m-item">
+          <h4>Dana Döner Dürüm</h4>
+          <p class="m-en">Beef Wrap</p>
+          <p class="m-desc">Dana döner, karışık biber ve soğan ile dürüm</p>
+          <p class="m-desc-en">Beef döner, mixed peppers and onion</p>
+        </div>
+        <div class="m-item">
+          <h4>Tavuk Sandviç</h4>
+          <p class="m-en">Chicken Sandwich</p>
+          <p class="m-desc">Izgara tavuk göğsü, marul, domates ve soğan ile sandviç</p>
+          <p class="m-desc-en">Grilled chicken breast, lettuce, tomato and onion</p>
+        </div>
+        <div class="m-item">
+          <h4>Dana Sandviç</h4>
+          <p class="m-en">Steak Sandwich</p>
+          <p class="m-desc">Dana bonfile, marul, domates ve kırmızı soğan ile sandviç</p>
+          <p class="m-desc-en">Beef tenderloin, lettuce, tomato and red onion</p>
+        </div>
+        <div class="m-item">
+          <h4>Ton Balıklı Sandviç</h4>
+          <p class="m-en">Tuna Sandwich</p>
+          <p class="m-desc">Ton balığı, mayonez, marul ve kırmızı soğan ile sandviç</p>
+          <p class="m-desc-en">Tuna, mayonnaise, lettuce and red onion</p>
+        </div>
+        <div class="m-item">
+          <h4>BLT Sandviç</h4>
+          <p class="m-en">B.L.T Sandwich</p>
+          <p class="m-desc">Bacon, marul ve domates ile sandviç</p>
+          <p class="m-desc-en">Bacon, lettuce and tomato</p>
+        </div>
+        <div class="m-item">
+          <h4>Soğuk Sandviç</h4>
+          <p class="m-en">Cold Sandwich</p>
+          <p class="m-desc">Tavuk jambon, peynir, marul ve domates ile sandviç</p>
+          <p class="m-desc-en">Chicken ham, cheese, lettuce and tomato</p>
+        </div>
+        <div class="m-item">
+          <h4>Jambonlu Sandviç</h4>
+          <p class="m-en">Ham &amp; Cheese Sandwich</p>
+          <p class="m-desc">Tavuk jambon ve eritilmiş peynir ile sandviç</p>
+          <p class="m-desc-en">Chicken ham and melted cheese</p>
+        </div>
+        <div class="m-item">
+          <h4>Peynirli Tost</h4>
+          <p class="m-en">Cheese &amp; Tomato Toast</p>
+          <p class="m-desc">Eritilmiş peynir ve domates ile tost</p>
+          <p class="m-desc-en">Melted cheese and tomatoes</p>
+        </div>
+        <div class="m-item">
+          <h4>Karışık Tost</h4>
+          <p class="m-en">Mixed Toast</p>
+          <p class="m-desc">Dana sucuk, peynir ve domates ile tost</p>
+          <p class="m-desc-en">Turkish beef sucuk, cheese and tomatoes</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Burgerler</h3>
+        <span>Burgers</span>
+      </div>
+      <p class="menu-block__note">Tüm burgerler patates kızartması ile servis edilir · <em>All burgers served with French fries</em></p>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Ev Yapımı Dana Burger</h4>
+          <p class="m-en">Homemade Beef Burger</p>
+          <p class="m-desc">Izgara dana köfte, marul, domates, turşu, ketçap ve mayonez ile</p>
+          <p class="m-desc-en">Grilled beef patty, lettuce, tomato, pickles, ketchup and mayonnaise</p>
+        </div>
+        <div class="m-item">
+          <h4>Ev Yapımı Cheeseburger</h4>
+          <p class="m-en">Homemade Cheeseburger</p>
+          <p class="m-desc">Izgara dana köfte, cheddar peyniri, marul, domates, turşu, ketçap ve mayonez</p>
+          <p class="m-desc-en">Grilled beef patty, cheddar cheese, lettuce, tomato, pickles, ketchup and mayonnaise</p>
+        </div>
+        <div class="m-item">
+          <h4>Tavuk Burger</h4>
+          <p class="m-en">Chicken Burger</p>
+          <p class="m-desc">Izgara tavuk göğsü, marul, domates, turşu, ketçap ve mayonez ile</p>
+          <p class="m-desc-en">Grilled chicken breast, lettuce, tomato, pickles, ketchup and mayonnaise</p>
+        </div>
+        <div class="m-item">
+          <h4>BBQ Burger</h4>
+          <p class="m-en">BBQ Burger</p>
+          <p class="m-desc">Izgara dana köfte, cheddar peyniri, soğan halkası, turşu ve BBQ sos ile</p>
+          <p class="m-desc-en">Grilled beef patty, cheddar cheese, onion rings, pickles and BBQ sauce</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Tavuk Yemekleri</h3>
+        <span>Chicken Dishes</span>
+      </div>
+      <p class="menu-block__note">Pilav ve patates kızartması ile servis edilir · <em>Served with rice and French fries</em></p>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Izgara Marine Tavuk Göğsü</h4>
+          <p class="m-en">Grilled Chicken</p>
+          <p class="m-desc">Marine edilmiş ızgara tavuk göğsü</p>
+          <p class="m-desc-en">Grilled marinated chicken breast</p>
+        </div>
+        <div class="m-item">
+          <h4>Tavuk Schnitzel</h4>
+          <p class="m-en">Chicken Schnitzel</p>
+          <p class="m-desc">Pane kaplı çıtır tavuk schnitzel</p>
+          <p class="m-desc-en">Crispy chicken fillet</p>
+        </div>
+        <div class="m-item">
+          <h4>Köri Soslu Tavuk</h4>
+          <p class="m-en">Chicken Curry</p>
+          <p class="m-desc">Kremalı köri soslu tavuk</p>
+          <p class="m-desc-en">Chicken in creamy curry sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Hawaii Tavuk</h4>
+          <p class="m-en">Chicken Hawaii</p>
+          <p class="m-desc">Ananas ile servis edilen ızgara tavuk</p>
+          <p class="m-desc-en">Grilled chicken with pineapple</p>
+        </div>
+        <div class="m-item">
+          <h4>Mantarlı Tavuk</h4>
+          <p class="m-en">Chicken with Mushrooms</p>
+          <p class="m-desc">Mantarlı kremalı sos ile tavuk</p>
+          <p class="m-desc-en">Chicken with creamy mushroom sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Yarım Kızarmış Tavuk</h4>
+          <p class="m-en">Half Roast Chicken</p>
+          <p class="m-desc">Yarım kızarmış tavuk, sulu ve yumuşak</p>
+          <p class="m-desc-en">Half roasted chicken, juicy and tender</p>
+        </div>
+        <div class="m-item">
+          <h4>Izgara Tavuk Şiş</h4>
+          <p class="m-en">Chicken Shish Kebab</p>
+          <p class="m-desc">Marine edilmiş ızgara tavuk şiş</p>
+          <p class="m-desc-en">Marinated chicken skewers, grilled</p>
+        </div>
+        <div class="m-item">
+          <h4>Izgara Tavuk Kanat</h4>
+          <p class="m-en">Grilled Chicken Wings</p>
+          <p class="m-desc">Izgara tavuk kanat</p>
+          <p class="m-desc-en">Grilled chicken wings</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Sıcak Tava</h3>
+        <span>Sizzling Dishes</span>
+      </div>
+      <p class="menu-block__note">Sıcak döküm tavada servis edilir · <em>Served on a hot sizzling plate</em></p>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Sıcak Tavada Tavuk</h4>
+          <p class="m-en">Chicken Sizzling</p>
+          <p class="m-desc">Biber ve soğan ile sıcak tavada servis edilen tavuk</p>
+          <p class="m-desc-en">Grilled chicken with peppers and onion on a hot plate</p>
+        </div>
+        <div class="m-item">
+          <h4>Sıcak Tavada Dana</h4>
+          <p class="m-en">Beef Sizzling</p>
+          <p class="m-desc">Biber ve soğan ile sıcak tavada servis edilen dana eti</p>
+          <p class="m-desc-en">Grilled beef with peppers and onion on a hot plate</p>
+        </div>
+        <div class="m-item">
+          <h4>Sıcak Tavada Karides</h4>
+          <p class="m-en">Prawn Sizzling</p>
+          <p class="m-desc">Sarımsaklı tereyağı ile sıcak tavada servis edilen karides</p>
+          <p class="m-desc-en">Grilled shrimps with garlic butter on a hot plate</p>
+        </div>
+        <div class="m-item">
+          <h4>Karışık Deniz Mahsulleri Sıcak Tava <span class="star">★</span></h4>
+          <p class="m-en">Mixed Seafood Sizzling</p>
+          <p class="m-desc">Karides, balık parçaları, ahtapot, midye ve kalamar sıcak tavada</p>
+          <p class="m-desc-en">Shrimps, pieces of fish, octopus, mussels and calamari on a hot plate</p>
+        </div>
+        <div class="m-item">
+          <h4>Tavuk Fajitas</h4>
+          <p class="m-en">Chicken Fajitas</p>
+          <p class="m-desc">Biber ve soğan ile sıcak tavada tavuk</p>
+          <p class="m-desc-en">Chicken with peppers and onion on a sizzling plate</p>
+        </div>
+        <div class="m-item">
+          <h4>Dana Fajitas</h4>
+          <p class="m-en">Beef Fajitas</p>
+          <p class="m-desc">Biber ve soğan ile sıcak tavada dana eti</p>
+          <p class="m-desc-en">Beef with peppers and onion on a sizzling plate</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Güveçler</h3>
+        <span>Casseroles</span>
+      </div>
+      <p class="menu-block__note">Sebzeler ile zengin domates sosunda fırında pişirilir · <em>Oven-baked with vegetables in rich tomato sauce</em></p>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Tavuk Güveç</h4>
+          <p class="m-en">Chicken Casserole</p>
+          <p class="m-desc">Sebzeler ile domates sosunda fırında pişirilmiş tavuk</p>
+          <p class="m-desc-en">Chicken baked with vegetables in tomato sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Dana Güveç</h4>
+          <p class="m-en">Beef Casserole</p>
+          <p class="m-desc">Sebzeler ile domates sosunda fırında pişirilmiş dana eti</p>
+          <p class="m-desc-en">Beef baked with vegetables in tomato sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Karides Güveç</h4>
+          <p class="m-en">Shrimp Casserole</p>
+          <p class="m-desc">Sebzeler ile domates sosunda fırında pişirilmiş karides</p>
+          <p class="m-desc-en">Shrimps baked with vegetables in tomato sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Sebze Güveç</h4>
+          <p class="m-en">Vegetable Casserole</p>
+          <p class="m-desc">Domates sosunda fırında pişirilmiş karışık sebzeler</p>
+          <p class="m-desc-en">Mixed vegetables baked in tomato sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Ahtapot Güveç</h4>
+          <p class="m-en">Octopus Casserole</p>
+          <p class="m-desc">Sebzeler ile zengin domates sosunda fırında pişirilmiş ahtapot</p>
+          <p class="m-desc-en">Octopus baked with vegetables in rich tomato sauce</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Steakler</h3>
+        <span>Steaks</span>
+      </div>
+      <p class="menu-block__note">Patates kızartması veya pilav ve ızgara sebzeler ile servis edilir · <em>Served with fries or rice, and grilled vegetables</em></p>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Prime Dana Bonfile <small>(400g)</small></h4>
+          <p class="m-en">Prime Tenderloin Steak (400g)</p>
+          <p class="m-desc">Yumuşak ve kaliteli dana bonfile</p>
+          <p class="m-desc-en">Premium tender beef cut</p>
+        </div>
+        <div class="m-item">
+          <h4>Dana Kontrfile <small>(200g)</small></h4>
+          <p class="m-en">Sirloin Steak (200g)</p>
+          <p class="m-desc">Lezzetli ve sulu dana kontrfile</p>
+          <p class="m-desc-en">Juicy steak with rich flavour</p>
+        </div>
+        <div class="m-item">
+          <h4>Karabiber Soslu Biftek <small>(200g)</small></h4>
+          <p class="m-en">Pepper Steak (200g)</p>
+          <p class="m-desc">Kremalı karabiber soslu dana biftek</p>
+          <p class="m-desc-en">Steak with creamy pepper sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Fileto <small>(200g)</small></h4>
+          <p class="m-en">Fillet Steak (200g)</p>
+          <p class="m-desc">Yumuşak ve yağsız dana bonfile</p>
+          <p class="m-desc-en">Lean and very tender steak</p>
+        </div>
+        <div class="m-item">
+          <h4>T-Bone Steak <small>(400g)</small></h4>
+          <p class="m-en">T-Bone Steak (400g)</p>
+          <p class="m-desc">Bonfile ve kontrfile karışımı büyük steak</p>
+          <p class="m-desc-en">Combination of fillet and sirloin</p>
+        </div>
+        <div class="m-item">
+          <h4>Kemikli Dana Antrikot <span class="star">★</span></h4>
+          <p class="m-en">Bone-in Ribeye Steak</p>
+          <p class="m-desc">Kemiğinde pişirilmiş sulu antrikot</p>
+          <p class="m-desc-en">Juicy ribeye steak cooked on the bone</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Et Yemekleri</h3>
+        <span>Meat Dishes</span>
+      </div>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Meksika Steak <small>(200g)</small></h4>
+          <p class="m-en">Mexican Steak (200g)</p>
+          <p class="m-desc">Baharatlı ve acılı marine dana steak</p>
+          <p class="m-desc-en">Spicy marinated steak</p>
+        </div>
+        <div class="m-item">
+          <h4>Kuzu İncik</h4>
+          <p class="m-en">Lamb Shank</p>
+          <p class="m-desc">Patates püresi ve sebzeler ile servis edilen yavaş pişmiş kuzu incik</p>
+          <p class="m-desc-en">Slow cooked lamb served with mashed potatoes and vegetables</p>
+        </div>
+        <div class="m-item">
+          <h4>Kuzu Pirzola</h4>
+          <p class="m-en">Lamb Chops</p>
+          <p class="m-desc">Izgara kuzu pirzola</p>
+          <p class="m-desc-en">Grilled lamb ribs</p>
+        </div>
+        <div class="m-item">
+          <h4>Izgara Köfte</h4>
+          <p class="m-en">Grilled Meatballs</p>
+          <p class="m-desc">Geleneksel ızgara köfte</p>
+          <p class="m-desc-en">Traditional grilled meatballs</p>
+        </div>
+        <div class="m-item">
+          <h4>Cheddar Peynirli Köfte</h4>
+          <p class="m-en">Meatballs with Cheddar Cheese</p>
+          <p class="m-desc">Eritilmiş cheddar ile köfte</p>
+          <p class="m-desc-en">Meatballs with melted cheddar</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>İmza Yemekler</h3>
+        <span>Signature Dishes</span>
+      </div>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Prime Et Tabağı <small>(2 kişilik)</small></h4>
+          <p class="m-en">Prime Meat Plate (for 2)</p>
+          <p class="m-desc">2 adet kuzu pirzola, 2 adet dana steak, 2 köfte, 2 tavuk kanat, dana döner, tavuk döner</p>
+          <p class="m-desc-en">2 pcs lamb chops, 2 pcs steak, 2 meatballs, 2 chicken wings, beef döner, chicken döner</p>
+        </div>
+        <div class="m-item">
+          <h4>Surf &amp; Turf</h4>
+          <p class="m-en">Surf &amp; Turf</p>
+          <p class="m-desc">Dana steak ve karides</p>
+          <p class="m-desc-en">Steak served with prawns</p>
+        </div>
+        <div class="m-item">
+          <h4>Cheers Karışık Izgara <span class="star">★</span></h4>
+          <p class="m-en">Cheers Mix Grill</p>
+          <p class="m-desc">Kuzu pirzola, dana et parçaları, köfte, tavuk</p>
+          <p class="m-desc-en">Lamb chops, steak pieces, meatballs, chicken</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Deniz Mahsulleri &amp; Balık</h3>
+        <span>Seafood &amp; Fish</span>
+      </div>
+      <p class="menu-block__note">Pilav veya patates kızartması ve salata ile servis edilir · <em>Served with rice or fries and salad</em></p>
+      <div class="menu-grid">
+        <div class="m-item">
+          <h4>Izgara Levrek</h4>
+          <p class="m-en">Grilled Sea Bass</p>
+          <p class="m-desc">Izgara levrek</p>
+          <p class="m-desc-en">Grilled sea bass</p>
+        </div>
+        <div class="m-item">
+          <h4>Izgara Çipura</h4>
+          <p class="m-en">Grilled Sea Bream</p>
+          <p class="m-desc">Izgara çipura</p>
+          <p class="m-desc-en">Grilled sea bream</p>
+        </div>
+        <div class="m-item">
+          <h4>Izgara Somon</h4>
+          <p class="m-en">Grilled Salmon</p>
+          <p class="m-desc">Izgara somon</p>
+          <p class="m-desc-en">Grilled salmon</p>
+        </div>
+        <div class="m-item">
+          <h4>Jumbo Karides</h4>
+          <p class="m-en">Jumbo Prawns</p>
+          <p class="m-desc">Domates sosunda jumbo karides</p>
+          <p class="m-desc-en">Jumbo prawns in tomato sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Kızarmış Kalamar</h4>
+          <p class="m-en">Fried Calamari</p>
+          <p class="m-desc">Kızarmış kalamar tabağı</p>
+          <p class="m-desc-en">Fried calamari</p>
+        </div>
+        <div class="m-item">
+          <h4>Izgara Ahtapot</h4>
+          <p class="m-en">Grilled Octopus</p>
+          <p class="m-desc">Izgara ahtapot</p>
+          <p class="m-desc-en">Grilled octopus</p>
+        </div>
+        <div class="m-item">
+          <h4>Sarımsaklı Tereyağında Ahtapot</h4>
+          <p class="m-en">Garlic Butter Octopus</p>
+          <p class="m-desc">Sarımsaklı tereyağında ahtapot</p>
+          <p class="m-desc-en">Octopus in garlic butter</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <div class="menu-block__head">
+        <h3>Çocuk Menüsü</h3>
+        <span>Kids Menu</span>
+      </div>
+      <p class="menu-block__note">Küçük misafirlerimiz için · <em>For our little guests</em></p>
+
+      <p class="m-en" style="text-align:center; margin-top:24px;">— Ana Yemekler · Mains —</p>
+      <div class="menu-grid menu-grid--three">
+        <div class="m-item">
+          <h4>Tavuk Nugget &amp; Patates</h4>
+          <p class="m-en">Chicken Nuggets &amp; Fries</p>
+          <p class="m-desc">Çıtır tavuk nugget ve patates kızartması (ketçap ve mayonez)</p>
+          <p class="m-desc-en">Crispy chicken nuggets with French fries (ketchup &amp; mayonnaise)</p>
+        </div>
+        <div class="m-item">
+          <h4>Mini Burger &amp; Patates</h4>
+          <p class="m-en">Mini Burger &amp; Fries</p>
+          <p class="m-desc">Yumuşak ekmekte dana burger, marul, domates, turşu, patates kızartması ile</p>
+          <p class="m-desc-en">Beef burger in a soft bun with lettuce, tomato, pickles, served with fries</p>
+        </div>
+        <div class="m-item">
+          <h4>Izgara Tavuk &amp; Pilav</h4>
+          <p class="m-en">Grilled Chicken &amp; Rice</p>
+          <p class="m-desc">Izgara tavuk ve pilav</p>
+          <p class="m-desc-en">Grilled chicken served with rice</p>
+        </div>
+        <div class="m-item">
+          <h4>Domates Soslu Spagetti</h4>
+          <p class="m-en">Spaghetti with Tomato Sauce</p>
+          <p class="m-desc">Ev yapımı domates soslu spagetti</p>
+          <p class="m-desc-en">Spaghetti with homemade tomato sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Yumurta, Patates &amp; Fasulye</h4>
+          <p class="m-en">Egg, Chips &amp; Beans</p>
+          <p class="m-desc">Kızarmış yumurta, patates kızartması ve fasulye</p>
+          <p class="m-desc-en">Fried egg, French fries and baked beans</p>
+        </div>
+        <div class="m-item">
+          <h4>Tavuk Döner Dürüm &amp; Patates</h4>
+          <p class="m-en">Chicken Döner Wrap &amp; Fries</p>
+          <p class="m-desc">Yumuşak dürümde tavuk döner, patates kızartması ile servis edilir</p>
+          <p class="m-desc-en">Chicken döner in a soft wrap, served with French fries</p>
+        </div>
+      </div>
+
+      <p class="m-en" style="text-align:center; margin-top:48px;">— Tatlılar · Desserts —</p>
+      <div class="menu-grid menu-grid--three">
+        <div class="m-item">
+          <h4>Çikolatalı Brownie</h4>
+          <p class="m-en">Chocolate Brownie</p>
+          <p class="m-desc">Sıcak brownie, vanilyalı dondurma ile servis edilir</p>
+          <p class="m-desc-en">Warm chocolate brownie served with vanilla ice cream</p>
+        </div>
+        <div class="m-item">
+          <h4>Cheesecake</h4>
+          <p class="m-en">Cheesecake</p>
+          <p class="m-desc">Kremalı cheesecake, meyve sosu ile servis edilir</p>
+          <p class="m-desc-en">Creamy cheesecake served with fruit sauce</p>
+        </div>
+        <div class="m-item">
+          <h4>Dondurmalı Baklava</h4>
+          <p class="m-en">Baklava with Ice Cream</p>
+          <p class="m-desc">Cevizli geleneksel baklava, vanilyalı dondurma ile</p>
+          <p class="m-desc-en">Traditional baklava with walnuts, served with vanilla ice cream</p>
+        </div>
+        <div class="m-item">
+          <h4>Dondurma Seçimi <small>(1 top)</small></h4>
+          <p class="m-en">Ice Cream Selection (1 Scoop)</p>
+          <p class="m-desc">Vitrinimizden dilediğiniz dondurma çeşitlerinden seçim — külah veya kap</p>
+          <p class="m-desc-en">Choose your favorite flavor from our display — cone or cup</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -291,8 +1059,8 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
       </div>
       <div class="tl reveal">
         <div class="tl__time">23:30</div>
-        <div class="tl__title">DJ Seti</div>
-        <p class="tl__desc">Dans alanı açılır, müzik yükselir.</p>
+        <div class="tl__title">Karaoke</div>
+        <p class="tl__desc">Mikrofon açılır, sahne misafirlerin.</p>
       </div>
       <div class="tl reveal">
         <div class="tl__time">02:00</div>
@@ -355,7 +1123,7 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
         <footer>— Sarah J. · Temmuz 2025</footer>
       </blockquote>
       <blockquote class="quote reveal">
-        <p>"Gumbet Sunset kokteyli efsane. Cuma akşamı DJ seti için tekrar geleceğiz, masa ayırtmayı unutmayın."</p>
+        <p>"Gumbet Sunset kokteyli efsane. Cuma akşamı karaoke gecesi için tekrar geleceğiz, masa ayırtmayı unutmayın."</p>
         <footer>— Ece &amp; Murat · Ağustos 2025</footer>
       </blockquote>
       <blockquote class="quote reveal">
