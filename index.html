@@ -69,6 +69,10 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
 .lang button { font-size: .76rem; padding: 6px 12px; border: 1px solid var(--line); background: transparent; color: rgba(29,39,66,.55); border-radius: 999px; cursor: pointer; letter-spacing: .1em; text-transform: uppercase; }
 .lang button.is-active { background: var(--midnight); color: var(--ivory); border-color: var(--midnight); }
 .nav__cta { font-size: .8rem; padding: 11px 24px; background: var(--sunset); color: var(--ivory); text-decoration: none; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; border-radius: 999px; margin-left: 16px; }
+.nav__actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
+.nav__actions .nav__cta { margin-left: 0; }
+.nav__social { font-size: .8rem; padding: 10px 18px; color: var(--midnight); text-decoration: none; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; border: 1px solid var(--line); border-radius: 999px; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.nav__social:hover { background: var(--midnight); color: var(--ivory); border-color: var(--midnight); }
 
 .hero { padding: clamp(80px, 14vw, 160px) 0; background: linear-gradient(160deg, var(--ivory) 0%, #f6e6c9 100%); position: relative; overflow: hidden; }
 .hero::before { content: ''; position: absolute; bottom: -160px; right: -120px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(232,122,63,.22), transparent 70%); pointer-events: none; }
@@ -189,6 +193,8 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
 .reveal.in { opacity: 1; transform: none; }
 
 @media (max-width: 900px) {
+  .nav__inner { align-items: flex-start; gap: 16px; }
+  .nav__actions { max-width: 62%; }
   .services__grid, .proof__grid { grid-template-columns: 1fr; }
   .timeline__grid { grid-template-columns: 1fr 1fr; }
   .about__grid { grid-template-columns: 1fr; }
@@ -198,6 +204,11 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
   .gallery__item.big { grid-column: span 2; height: 280px; }
   .menu-grid, .menu-grid--three { grid-template-columns: 1fr; gap: 28px; }
 }
+@media (max-width: 640px) {
+  .nav__inner { flex-direction: column; align-items: stretch; }
+  .nav__actions { max-width: none; justify-content: flex-start; }
+  .nav__cta, .nav__social { padding: 10px 14px; font-size: .72rem; }
+}
 @media (prefers-reduced-motion: reduce) { *, ::before, ::after { transition: none !important; } }
 </style>
 </head>
@@ -206,9 +217,13 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
 <header class="nav">
   <div class="wrap nav__inner">
     <a class="brand" href="#top">Cheers<small>Gumbet · Bodrum</small></a>
-    <div style="display:flex; align-items:center;">
-      
+    <div class="nav__actions">
+      <div class="lang" aria-label="Dil seçimi">
+        <button type="button" class="is-active" data-lang-btn="tr">TR</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
       <a class="nav__cta" href="https://wa.me/905533052053" target="_blank" rel="noopener">Mesaj Atın</a>
+      <a class="nav__social" href="https://www.instagram.com/cheers_restaurant_beach_bar/" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
 </header>
@@ -1140,6 +1155,7 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
     <p>Hafta sonları erken doluyoruz. WhatsApp üzerinden mesaj atın, masa türü ve saat birlikte bakalım.</p>
     <div class="cta-row" style="justify-content:center;">
       <a class="btn btn-primary" href="https://wa.me/905533052053" target="_blank" rel="noopener">Mesajla Rezervasyon</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/cheers_restaurant_beach_bar/" target="_blank" rel="noopener">Instagram</a>
       <a class="btn btn-ghost" href="tel:+905533052053">Telefonla Ara · 0553 305 20 53</a>
       <a class="btn btn-ghost" href="https://maps.google.com/?q=Cheers+Restaurant+Gumbet+Bodrum" target="_blank" rel="noopener">Yol Tarifi</a>
     </div>
@@ -1149,7 +1165,7 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
 <footer class="foot">
   <div class="wrap foot__inner">
     <span>© 2026 Cheers Restaurant · Gumbet, Bodrum</span>
-    <span>0553 305 20 53 · @cheersbodrum</span>
+    <span>0553 305 20 53 · <a href="https://www.instagram.com/cheers_restaurant_beach_bar/" target="_blank" rel="noopener">@cheers_restaurant_beach_bar</a></span>
   </div>
 </footer>
 
@@ -1158,6 +1174,144 @@ const io = new IntersectionObserver((es) => {
   es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+const translations = new Map([
+  [`Mesaj Atın`, `Message Us`],
+  [`Gümbet · Bodrum · Kokteyl ve Geç Saatler`, `Gumbet · Bodrum · Cocktails and Late Nights`],
+  [`Akşam <em>burada</em> başlar.`, `The evening <em>starts</em> here.`],
+  [`Gumbet'in tam ortasında, gün batımıyla açılan ve gece yarısını geçen bir bar-restoran. Akşam yemeği, imza kokteyller ve hafta sonu karaoke geceleri.`, `A bar-restaurant in the heart of Gumbet, opening with sunset and carrying the night past midnight. Dinner, signature cocktails and weekend karaoke nights.`],
+  [`Mesajla İletişim`, `Message Us`],
+  [`Menüyü Gör`, `View Menu`],
+  [`Açılış`, `Opening`],
+  [`Son Servis`, `Last Service`],
+  [`Puan`, `Rating`],
+  [`Dil`, `Language`],
+  [`Gumbet · Adnan Menderes Cd.`, `Gumbet · Adnan Menderes St.`],
+  [`Akşamın Üç Hali`, `Three Moods of the Evening`],
+  [`Üç farklı <em>ritim,</em> tek bir bar.`, `Three different <em>rhythms,</em> one bar.`],
+  [`Erken akşamdan gece yarısına — masa, bar ve karaoke sahnesi sırayla devreye giriyor.`, `From early evening to midnight, the tables, bar and karaoke stage take their turn.`],
+  [`Akşam Yemeği`, `Dinner`],
+  [`Şefin akdeniz mutfağı; ızgara ahtapot, levrek carpaccio ve mevsim sebzeleri ile.`, `Chef-led Mediterranean plates with grilled octopus, sea bass carpaccio and seasonal vegetables.`],
+  [`Ahtapot ızgara, kişniş yağı`, `Grilled octopus, coriander oil`],
+  [`Levrek carpaccio, pembe biber`, `Sea bass carpaccio, pink pepper`],
+  [`Akdeniz mezeleri tabağı`, `Mediterranean mezze plate`],
+  [`Şefin günlük menüsü`, `Chef's daily menu`],
+  [`Kokteyl Saati`, `Cocktail Hour`],
+  [`Bodrum'un en uzun bar kartlarından biri — imza kokteyller, klasikler, mocktail seçenekleri.`, `One of Bodrum's longest bar lists: signature cocktails, classics and mocktail options.`],
+  [`Imza: Gumbet Sunset`, `Signature: Gumbet Sunset`],
+  [`Bodrum Negroni, mastik likörü`, `Bodrum Negroni with mastic liqueur`],
+  [`Premium ispirto seçkisi`, `Premium spirits selection`],
+  [`Alkolsüz kokteyl bar`, `Alcohol-free cocktail bar`],
+  [`Karaoke Geceleri`, `Karaoke Nights`],
+  [`Perşembe'den Pazar'a, gece 23:00 sonrası canlı karaoke. Mikrofon sizde — sahne hazır.`, `Live karaoke from Thursday to Sunday after 23:00. The mic is yours and the stage is ready.`],
+  [`Per — Paz · 23:00 sonrası`, `Thu — Sun · after 23:00`],
+  [`TR · EN · geniş şarkı listesi`, `TR · EN · wide song list`],
+  [`Sahne ışıkları ve profesyonel ses`, `Stage lighting and professional sound`],
+  [`Masa rezervasyonu önerilir`, `Table reservations recommended`],
+  [`Menü · Food Menu`, `Food Menu`],
+  [`Şefin <em>menüsü.</em>`, `The chef's <em>menu.</em>`],
+  [`Kahvaltıdan steakhouse'a, mezeden tatlıya — tüm seçkimiz <em>iki dilli</em> aşağıda.`, `From breakfast to steakhouse plates, mezze to desserts, explore the full selection below.`],
+  [`Gecenin Akışı`, `Flow of the Night`],
+  [`Gün batımından <em>son şarkıya.</em>`, `From sunset to <em>the last song.</em>`],
+  [`Her akşam kabaca bu ritmi izler — masanız hangi saate denk gelirse o pencerenin tadını çıkarın.`, `Most evenings follow this rhythm. Wherever your table lands, enjoy that window of the night.`],
+  [`Kapılar açılır, bar hazır. Aperitif saatleri.`, `Doors open, the bar is ready. Aperitif time.`],
+  [`Şefin menüsü, uzun masalar dolmaya başlar.`, `The chef's menu begins and long tables start to fill.`],
+  [`Yemek biter, bar dolar. Imza kokteyller akar.`, `Dinner winds down, the bar fills up and signature cocktails flow.`],
+  [`Mikrofon açılır, sahne misafirlerin.`, `The mic turns on and the stage belongs to the guests.`],
+  [`Son kadehler, son şarkılar. Kapanış.`, `Final glasses, final songs. Closing time.`],
+  [`Hikayemiz`, `Our Story`],
+  [`Gumbet'te <em>dünyayla buluşan</em> bir akşam.`, `An evening in Gumbet <em>where the world meets.</em>`],
+  [`Cheers, 2018'de Adnan Menderes Caddesi'nin tam ortasında, eski bir taş binanın yenilenmesiyle açıldı. Şef Cem Aksoy'un akdeniz mutfağı ile barmen Deniz Yıldız'ın imza kokteylleri burada buluşuyor.`, `Cheers opened in 2018 in the middle of Adnan Menderes Street, inside a restored stone building. Chef Cem Aksoy's Mediterranean kitchen meets bartender Deniz Yildiz's signature cocktails here.`],
+  [`Yazlık Bodrum'a gelen yabancı misafirler ve Türk hafta sonu kaçamakçıları, aynı bardan içiyor. Servis ekibimiz Türkçe ve İngilizce; menü iki dilli.`, `International guests visiting summer Bodrum and Turkish weekend guests drink at the same bar. Our service team speaks Turkish and English, and the menu is bilingual.`],
+  [`Bu Sezon · Yaz 2026`, `This Season · Summer 2026`],
+  [`Kuruluş`, `Founded`],
+  [`Kapasite`, `Capacity`],
+  [`120 kişi`, `120 guests`],
+  [`Şef`, `Chef`],
+  [`Misafir profili`, `Guest Profile`],
+  [`Telefon`, `Phone`],
+  [`Mekan`, `Venue`],
+  [`Akşamdan <em>birkaç kare.</em>`, `A few frames <em>from the evening.</em>`],
+  [`Bardan sokağa, kokteylden Sunday roast'a — Cheers'ın akşamı.`, `From the bar to the street, cocktails to Sunday roast: an evening at Cheers.`],
+  [`Misafirlerimiz`, `Our Guests`],
+  [`Söyledikleri <em>birkaç söz.</em>`, `A few words <em>from our guests.</em>`],
+  [`"Gumbet'te akşam yemeği yiyip bara kadar kalabileceğin nadir mekanlardan. Servis ekibinin İngilizce'si harika."`, `"One of the rare places in Gumbet where you can have dinner and stay on at the bar. The team's English is great."`],
+  [`"Gumbet Sunset kokteyli efsane. Cuma akşamı karaoke gecesi için tekrar geleceğiz, masa ayırtmayı unutmayın."`, `"The Gumbet Sunset cocktail is brilliant. We will be back for Friday karaoke night, remember to book a table."`],
+  [`Bu akşam <em>masanızı</em> ayırtın.`, `Book <em>your table</em> tonight.`],
+  [`Hafta sonları erken doluyoruz. WhatsApp üzerinden mesaj atın, masa türü ve saat birlikte bakalım.`, `Weekends fill up early. Message us on WhatsApp and we will find the right table and time together.`],
+  [`Mesajla Rezervasyon`, `Reserve by Message`],
+  [`Telefonla Ara · 0553 305 20 53`, `Call · 0553 305 20 53`],
+  [`Yol Tarifi`, `Directions`]
+]);
+
+function translateStatic(lang) {
+  document.querySelectorAll('h1, h2, h3, p, span, small, dt, dd, li, a, .tl__title, .tl__desc, footer').forEach((el) => {
+    if (el.closest('.menu-block')) return;
+    if (!el.dataset.trHtml) el.dataset.trHtml = el.innerHTML.trim();
+    const next = lang === 'en' ? translations.get(el.dataset.trHtml) : el.dataset.trHtml;
+    if (next) el.innerHTML = next;
+  });
+}
+
+function translateMenu(lang) {
+  document.querySelectorAll('.menu-block__head').forEach((head) => {
+    const title = head.querySelector('h3');
+    const subtitle = head.querySelector('span');
+    if (!title || !subtitle) return;
+    if (!title.dataset.trHtml) title.dataset.trHtml = title.innerHTML.trim();
+    if (!title.dataset.enText) title.dataset.enText = subtitle.textContent.trim();
+    title[lang === 'en' ? 'textContent' : 'innerHTML'] = lang === 'en' ? title.dataset.enText : title.dataset.trHtml;
+    subtitle.hidden = true;
+  });
+
+  document.querySelectorAll('.menu-block__note').forEach((note) => {
+    if (!note.dataset.trHtml) {
+      note.dataset.trHtml = note.innerHTML.trim();
+      const en = note.querySelector('em');
+      note.dataset.enHtml = en ? en.innerHTML.trim() : note.dataset.trHtml;
+    }
+    note.innerHTML = lang === 'en' ? note.dataset.enHtml : note.dataset.trHtml;
+  });
+
+  document.querySelectorAll('.menu-block > .m-en').forEach((label) => {
+    if (!label.dataset.trHtml) {
+      label.dataset.trHtml = label.innerHTML.trim();
+      const parts = label.textContent.replace(/—/g, '').split('·').map((part) => part.trim()).filter(Boolean);
+      label.dataset.enHtml = parts.length > 1 ? `— ${parts[1]} —` : label.dataset.trHtml;
+    }
+    label.innerHTML = lang === 'en' ? label.dataset.enHtml : label.dataset.trHtml;
+  });
+
+  document.querySelectorAll('.m-item').forEach((item) => {
+    const title = item.querySelector('h4');
+    const enTitle = item.querySelector(':scope > .m-en');
+    const trDesc = item.querySelector(':scope > .m-desc');
+    const enDesc = item.querySelector(':scope > .m-desc-en');
+    if (title && !title.dataset.trHtml) title.dataset.trHtml = title.innerHTML.trim();
+    if (title && enTitle) {
+      if (lang === 'en') title.textContent = enTitle.textContent.trim();
+      else title.innerHTML = title.dataset.trHtml;
+    }
+    if (enTitle) enTitle.hidden = true;
+    if (trDesc) trDesc.hidden = lang === 'en';
+    if (enDesc) enDesc.hidden = lang !== 'en';
+  });
+}
+
+function setLanguage(lang) {
+  document.documentElement.lang = lang;
+  translateStatic(lang);
+  translateMenu(lang);
+  document.querySelectorAll('[data-lang-btn]').forEach((button) => {
+    button.classList.toggle('is-active', button.dataset.langBtn === lang);
+  });
+  localStorage.setItem('cheers-language', lang);
+}
+
+document.querySelectorAll('[data-lang-btn]').forEach((button) => {
+  button.addEventListener('click', () => setLanguage(button.dataset.langBtn));
+});
+setLanguage(localStorage.getItem('cheers-language') || 'tr');
 </script>
 </body>
 </html>
